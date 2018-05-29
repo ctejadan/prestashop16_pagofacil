@@ -1,9 +1,17 @@
-# Plugin Conector de Prestashop con Pago Fácil
-Este plugin proporciona acceso a las tarjetas de crédito y débito chilenas usando la plataforma de Pago Fácil y el eCommerce de Prestashop.
+# Pago Fácil plugin for PrestaShop 1.7!
+### Installation 1
 
-#Instalación
-* Descarga la última versión.
-* Descomprime en la carpeta de módulos.
-* Cambia el nombre de la carpeta a pagofacil
-* Activa el módulo desde la configuración
-* Configura el módulo con tus credenciales.
+* Download the latest version.
+* Rename the file to "pagofacil".
+* Unzip the module's folder.
+* Active the module in your PrestaShop's back-office.
+* Set up the module with your credentials.
+
+### Installation 2
+* Download the latest version.
+* Unzip the module.
+* Rename the folder to "pagofacil".
+* Compress the folder (zip) with "pagofacil" as name.
+* Upload the module through your PrestaShop's back-office.
+* Set up the module with your credentials.
+
