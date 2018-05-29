@@ -1,0 +1,15 @@
+{
+    "name": "ctala/pagofacil_prestashop",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Cristian Tala Sanchez",
+            "email": "yomismo@cristiantala.cl"
+        }
+    ],
+    "require": {
+        "ctala/transaccion-default": "V0.1.12.3",
+        "ctala/http-helper": "dev-master"
+    }
+}
