@@ -290,7 +290,6 @@ class PagoFacil extends PaymentModule
 
     public function hookPaymentReturn($params)
     {
-        error_log("Ejecutando ReturnHook Propio");
         if (!$this->active) {
             return;
         }
@@ -299,13 +298,9 @@ class PagoFacil extends PaymentModule
         $id_cart = $objOrder->id_cart;
         $order = new Order($id_cart);
 
-
         $state = $params['objOrder']->getCurrentState();
         $stateDB = $order->getCurrentState();
         $PS_OS_PAYMENT = Configuration::get('PS_OS_PAYMENT');
-        error_log("Current State : $state");
-        error_log("Current State DB: $stateDB");
-        error_log("Estado Esperado EXITO: $PS_OS_PAYMENT");
 
         if ($stateDB == $PS_OS_PAYMENT) {
             $this->smarty->assign(array(
