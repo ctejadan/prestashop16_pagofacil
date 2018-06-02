@@ -27,9 +27,13 @@
 <div class="row">
     <div class="col-xs-12">
         <p class="payment_module">
-            <a class="bankwire" href="{$link->getModuleLink('pagofacil', 'payment')|escape:'html'}" title="Pago con Tarjetas de crédito y débito.">
-                Pago con Tarjetas de crédito y débito. <span>(el pedido será procesado automáticamente)</span>
+            <a class="bankwire" href="{$link->getModuleLink('pagofacil', 'payment')|escape:'html'}" title="{l s='Credit and debit card payment' mod='pagofacil'}">
+                {l s='Credit and debit card payment ' mod='pagofacil'}
+                <span>{l s='(the order will be automatically processed)' mod='pagofacil'}</span>
             </a>
         </p>
     </div>
 </div>
+
+
+

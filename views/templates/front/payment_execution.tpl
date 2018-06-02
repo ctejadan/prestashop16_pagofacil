@@ -25,34 +25,32 @@
 
 {capture name=path}
     <a href="{$link->getPageLink('order', true, NULL, "step=3")|escape:'html':'UTF-8'}"
-       title="{l s='Go back to the Checkout' mod='bankwire'}">{l s='Checkout' mod='bankwire'}</a>
-    <span class="navigation-pipe">{$navigationPipe}</span>{l s='Tarjetas de crédito y débito' mod='pagofacil'}
+       title="{l s='Go back to the Checkout' mod='pagofacil'}">{l s='Checkout' mod='pagofacil'}</a>
+    <span class="navigation-pipe">{$navigationPipe}</span>{l s='Credit and debit card' mod='pagofacil'}
 {/capture}
 
-{include file="$tpl_dir./breadcrumb.tpl"}
-
-<h2>{l s='Order summary' mod='bankwire'}</h2>
+<h2>{l s='Order summary' mod='pagofacil'}</h2>
 
 {assign var='current_step' value='payment'}
 {include file="$tpl_dir./order-steps.tpl"}
 
 {if $nbProducts <= 0}
-    <p class="warning">{l s='Your shopping cart is empty.' mod='bankwire'}</p>
+    <p class="warning">{l s='Your shopping cart is empty.' mod='pagofacil'}</p>
 {else}
-    {if $showAllPlatformsInPagoFacil == 'SI'}
-        <h3>{l s='Confirma tu pedido para pagar con Pago Fácil' mod='pagofacil'}</h3>
+    {if $showAllPlatformsInPagoFacil == 'YES'}
+        <h3>{l s='Confirm your order to pay with Pago Fácil' mod='pagofacil'}</h3>
         <form action="{$link->getModuleLink('pagofacil', 'validation', [], true)|escape:'html'}" method="post">
             <p>
-                <b>{l s='Al confirmar el pedido serás redirigido a la plataforma de Pago Fácil.' mod='pagofacil'}</b>
+                <b>{l s='By confirming your order, you will be redirected to the Pago Fácil platform.' mod='pagofacil'}</b>
             </p>
             <p class="cart_navigation" id="cart_navigation">
-                <input type="submit" value="{l s='I confirm my order' mod='bankwire'}" class="exclusive_large"/>
+                <input type="submit" value="{l s='I confirm my order' mod='pagofacil'}" class="exclusive_large"/>
                 <a href="{$link->getPageLink('order', true, NULL, "step=3")|escape:'html'}"
-                   class="button_large">{l s='Other payment methods' mod='bankwire'}</a>
+                   class="button_large">{l s='Other payment methods' mod='pagofacil'}</a>
             </p>
         </form>
     {else}
-        <h3>{l s='Selecciona un método de pago para continuar' mod='pagofacil'}</h3>
+        <h3>{l s='Select a payment method to continue' mod='pagofacil'}</h3>
         <form action="{$link->getModuleLink('pagofacil', 'validation', [], true)|escape:'html'}" method="post">
 
             {foreach from=$result['externalServices'] key=ix item=service}
@@ -71,13 +69,13 @@
             {/foreach}
 
             <p>
-                <b>{l s='Al confirmar el pedido serás redirigido a la plataforma de pago seleccionada.' mod='pagofacil'}</b>
+                <b>{l s='By confirming your order, you will be redirected to the Pago Fácil platform.' mod='pagofacil'}</b>
             </p>
 
             <p class="cart_navigation" id="cart_navigation">
-                <input type="submit" value="{l s='I confirm my order' mod='bankwire'}" class="exclusive_large"/>
+                <input type="submit" value="{l s='I confirm my order' mod='pagofacil'}" class="exclusive_large"/>
                 <a href="{$link->getPageLink('order', true, NULL, "step=3")|escape:'html'}"
-                   class="button_large">{l s='Other payment methods' mod='bankwire'}</a>
+                   class="button_large">{l s='Other payment methods' mod='pagofacil'}</a>
             </p>
         </form>
     {/if}

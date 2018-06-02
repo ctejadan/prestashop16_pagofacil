@@ -26,25 +26,27 @@
  */
 
 /**
- *
- * @author Cristian Tejada <cristian.tejadan@gmail.com>
+ * author: Cristian Tejada - https://github.com/ctejadan
  */
-
 /**
  * @since 1.5.0
  */
+
+include_once(_PS_MODULE_DIR_ . 'pagofacil' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'PagoFacilHelper.php');
+
+
 class PagoFacilPaymentModuleFrontController extends ModuleFrontController
 {
 
     public $ssl = true;
-    var $token_service;
-    var $token_secret;
 
     /**
      * @see FrontController::initContent()
      */
     public function initContent()
     {
+        $PFHelper = new PagoFacilHelper();
+
         // Disable left and right column
         $this->display_column_left = false;
         $this->display_column_right = false;
@@ -63,17 +65,7 @@ class PagoFacilPaymentModuleFrontController extends ModuleFrontController
 
         //get services for this account
 
-        $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_URL, "https://t.pagofacil.xyz/v1/services");
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('x-currency: ' . $currency->iso_code, 'x-service: ' . $this->token_service));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        $server_output = curl_exec($ch);
-
-        $result = json_decode($server_output, true);
-
-        curl_close($ch);
+        $result = $PFHelper->getServices(Configuration::get('ENVIRONMENT'), $currency->iso_code, $this->token_service);
 
         /* @var $smarty Smarty */
         $smarty = $this->context->smarty;
@@ -92,10 +84,7 @@ class PagoFacilPaymentModuleFrontController extends ModuleFrontController
         $smarty->assign($datos);
 
         $this->setTemplate('payment_execution.tpl');
-//        $templateDir = _PS_MODULE_DIR_ . "pagofacil" . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . "front" . DIRECTORY_SEPARATOR;
-//        $templateFull = $templateDir . "payment_execution.tpl";
-//        error_log($templateFull);
-//        $smarty->display($templateFull);
+
     }
 
 }

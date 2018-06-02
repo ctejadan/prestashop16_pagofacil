@@ -24,21 +24,23 @@
 *}
 
 
-<h1>Pedido Recibido</h1>
-
-
+<h1>{l s='Order Received.' mod='pagofacil'}</h1>
 
 {if $status == 'ok'}
-    <p>{l s='Your order on %s is complete.' sprintf=$shop_name mod='bankwire'}
-        <strong><br /><br /> En estos momentos el comercio comenzará a procesar tu pedido.
+    <p>{l s='Your order on %s is complete.' sprintf=$shop_name mod='pagofacil'}
+        <br/>
+        <br/>
+        <strong>
+            {l s='At this time the store will begin to process your order.' mod='pagofacil'}
         </strong>
-        <br /><br />- {l s='Amount' mod='bankwire'} <span class="price"><strong>{$total_to_pay}</strong></span>
-        <br /><br />{l s='An email has been sent with this information.' mod='bankwire'}
-        <br /><br />{l s='If you have questions, comments or concerns, please contact our' mod='bankwire'} <a href="{$link->getPageLink('contact', true)|escape:'html'}">{l s='expert customer support team' mod='bankwire'}</a>.
+        <br/><br/>- {l s='Amount' mod='pagofacil'} <span class="price"><strong>{$total_to_pay}</strong></span>
+        <br/><br/>{l s='An email has been sent with this information.' mod='pagofacil'}
+        <br/><br/>{l s='If you have questions, comments or concerns, please contact our' mod='pagofacil'} <a
+                href="{$link->getPageLink('contact', true)|escape:'html'}">{l s='expert customer support team' mod='pagofacil'}</a>.
     </p>
 {else}
     <p class="warning">
-        {l s='We noticed a problem with your order. If you think this is an error, feel free to contact our' mod='bankwire'} 
-        <a href="{$link->getPageLink('contact', true)|escape:'html'}">{l s='expert customer support team' mod='bankwire'}</a>.
+        {l s='We noticed a problem with your order. If you think this is an error, feel free to contact us' mod='pagofacil'}
+        <a href="{$link->getPageLink('contact', true)|escape:'html'}">{l s='expert customer support team' mod='pagofacil'}</a>.
     </p>
 {/if}
