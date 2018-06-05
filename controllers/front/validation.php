@@ -118,7 +118,7 @@ class PagoFacilValidationModuleFrontController extends ModuleFrontController
         $result = json_decode($resultBeforeJSONDecode, true);
 
 
-        if (!empty($result) && in_array("errorMessage", $result) || !empty($result) && in_array("status", $result) && $result['status'] == 0) {
+        if (!empty($result) && array_key_exists("errorMessage", $result) || !empty($result) && array_key_exists("status", $result) && $result['status'] == 0) {
             $smarty = $this->context->smarty;
             $smarty->assign('errorCode', $result['statusCode']);
             $this->setTemplate('module:pagofacil/views/templates/front/create_transaction_failed.tpl');
