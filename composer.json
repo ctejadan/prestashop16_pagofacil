@@ -1,15 +1,30 @@
 {
-    "name": "ctala/pagofacil_prestashop",
+    "name": "pagofacil",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "authors": [
         {
-            "name": "Cristian Tala Sanchez",
-            "email": "yomismo@cristiantala.cl"
+            "name": "Cristian Tejada",
+            "email": "cristian.tejadan@gmail.com"
         }
     ],
-    "require": {
-        "ctala/transaccion-default": "V0.1.12.3",
-        "ctala/http-helper": "dev-master"
+    "config": {
+        "preferred-install": "source"
+    },
+    "repositories": [
+{
+    "type": "package",
+    "package": {
+        "name": "pfhelper",
+        "version": "1.0",
+        "source": {
+            "url": "https://github.com/ctejadan/pagoFacilHelper.git",
+            "type": "git",
+            "reference": "master"
+        }
     }
+}],
+"require" : {
+  "pfhelper": "1.0"
+}
 }

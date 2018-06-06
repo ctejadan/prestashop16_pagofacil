@@ -22,8 +22,9 @@
 if (!defined('_PS_VERSION_')) {
     exit;
 }
-include_once 'vendor/autoload.php';
-include_once(_PS_MODULE_DIR_ . 'pagofacil' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'PagoFacilHelper.php');
+#include_once 'vendor/autoload.php';
+
+require_once(_PS_MODULE_DIR_ . 'pagofacil' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'pfhelper' . DIRECTORY_SEPARATOR . 'PagoFacilHelper.php');
 
 
 class PagoFacil extends PaymentModule

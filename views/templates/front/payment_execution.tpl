@@ -56,9 +56,9 @@
             {foreach from=$result['externalServices'] key=ix item=service}
                 <div>
                     {if $ix == 0}
-                        <input checked type="radio" name="endpoint" value="{$service['endpoint']}">
+                        <input checked type="radio" name="endpoint" value="{$service['endpoint']}" required>
                     {else}
-                        <input type="radio" name="endpoint" value="{$service['endpoint']}">
+                        <input type="radio" name="endpoint" value="{$service['endpoint']}" required>
                     {/if}
                     {$service['name']}
                     <img src="{$service['logo_url']}" width="80">
