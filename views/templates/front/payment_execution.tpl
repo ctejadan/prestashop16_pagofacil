@@ -61,7 +61,7 @@
                         <input type="radio" name="endpoint" value="{$service['endpoint']}" required>
                     {/if}
                     {$service['name']}
-                    <img src="{$service['logo_url']}" width="80">
+                    <img src="{$service['logo_url']}" height="40">
                     <br>
                     <p>{$service['description']}</p>
                 </div>
